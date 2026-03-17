@@ -1,0 +1,97 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  background-color: #0b0b0f;
+  font-family: Arial, sans-serif;
+}
+
+.bg-container {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+}
+
+h1 {
+  font-size: 30px;
+  position: absolute;
+  left: 20px;
+  font-weight: bold;
+  background: linear-gradient(
+    135deg,
+    #1a0000,
+    #2b0033,
+    #4d7a7a,
+    #1a0000
+  );
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 6s ease-in-out infinite;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  animation: fadeCycle 18s infinite;
+}
+
+/* Colocar minhas imagens */
+.bg1 {
+  background-image: url("img1.jpg");
+  animation-delay: 0s;
+}
+
+.bg2 {
+  background-image: url("img2.jpg");
+  animation-delay: 6s;
+}
+
+.bg3 {
+  background-image: url("img3.jpg");
+  animation-delay: 12s;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 1;
+}
+
+@keyframes fadeCycle {
+  0%   { opacity: 0; transform: scale(1); }
+  5%   { opacity: 1; }
+  30%  { opacity: 1; transform: scale(1.08); }
+  35%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+main {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;   
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
